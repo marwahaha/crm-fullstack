@@ -1,0 +1,10 @@
+#navBar {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 7fr;
+    background-color: rgb(110, 104, 104);
+}
+
+#navBar > a {
+    justify-self: center;
+    align-self: center; 
+}

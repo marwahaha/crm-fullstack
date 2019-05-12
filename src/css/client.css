@@ -1,0 +1,6 @@
+#client {
+    display: grid ;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 2fr 2fr ;
+    font-size: 60%;
+    border-bottom: 1px solid rgb(128, 125, 125);
+}
