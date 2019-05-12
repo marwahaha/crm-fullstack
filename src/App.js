@@ -18,36 +18,9 @@ class App extends Component {
     super()
     this.state = {
       clients: []
+      
     }
   }
-
-
-  getDataFromDB = async () => {
-    let clientsFromDB = await axios.get('http://localhost:4500/clients')
-    console.log(clientsFromDB)
-    this.setState({ clients: clientsFromDB.data })
-
-  }
-
-  postToDB = async () => {
-    let data = await require("../src/data.json")
-    // console.log(data.map(d => d.name))
-
-    data.map(async c => await axios.post('http://localhost:4500/newClient', c))
-    this.getDataFromDB()
-
-  }
-
-
-
-  componentDidMount = async () => {
-    // let clientList = await this.getDataFromDB()
-    // this.setState({ clients: clientList }, () => {
-    //     console.log(this.state.clients)
-    // })
-    this.postToDB()
-  }
-
 
 
   render() {
@@ -56,7 +29,7 @@ class App extends Component {
         <div id="main">
           <Navbar />
 
-          <Route exact path="/" render={() => <Clients data={this.state.clients} />} />
+          <Route exact path="/" render={() => <Clients />} />
           <Route exact path="/actions" render={() => <Actions />} />
           <Route exact path="/analytics" render={() => <Analytics />} />
 
