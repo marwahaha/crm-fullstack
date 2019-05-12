@@ -4,7 +4,12 @@
     background-color: rgb(110, 104, 104);
 }
 
-#navBar > a {
-    justify-self: center;
-    align-self: center; 
+#navBar>a {
+    /* justify-self: center;
+    align-self: center; */
+    text-decoration: none;
+    color: rgb(139, 207, 29);
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
 }

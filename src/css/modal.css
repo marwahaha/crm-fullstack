@@ -1,0 +1,21 @@
+#modal {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    height: 30vh;
+    width: 50vh;
+    background-color: #ad4444;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(104, 106, 109);
+}
+
+.inputField {
+    display: grid;
+grid-template-columns: 1fr 1fr ;    
+}

@@ -1,8 +1,10 @@
 #headers {
-    display: grid ;
-    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 2fr 2fr ;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 2fr 2fr;
     font-size: 60%;
-    font-weight: bold ;
+    font-weight: bold;
     border-bottom: 1px solid rgb(128, 125, 125);
     background-color: rgb(223, 90, 37);
+    font-family: 'Montserrat', sans-serif;
+    
 }

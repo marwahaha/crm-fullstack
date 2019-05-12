@@ -16,6 +16,7 @@ router.get('/clients', function (req, res) {
 
 router.post("/newClient", async function (req, res) {
     // CHECK IF "POST" WORKS (POSTMAN)
+    console.log(req.data)
 
     let data = req.body    
     let newClient = new Client(data)

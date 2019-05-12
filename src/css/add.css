@@ -1,0 +1,18 @@
+#addBtn {
+    display: grid;
+    width: 200px;
+    height: 30px;
+    margin-top: 15px;
+    justify-content: center;
+    align-content: center;
+    background-color: #f9ca24;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+input {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(104, 106, 109);
+}

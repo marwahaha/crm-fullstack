@@ -1,15 +1,4 @@
-.App {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-
-}
-
-a {
-  text-decoration: none;
-  color: rgb(139, 207, 29) ;
-  font-size: 15px ;
-  font-weight: bold ;
-  font-family: 'Montserrat', sans-serif;
-
+#main {
+    background-color: #ecf0f1;
 }
 
