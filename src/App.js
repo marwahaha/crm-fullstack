@@ -23,26 +23,29 @@ class App extends Component {
 
 
   getDataFromDB = async () => {
-    let clients = await axios.get('http://localhost:4500/clients')
-    return clients.data
+    let clientsFromDB = await axios.get('http://localhost:4500/clients')
+    console.log(clientsFromDB)
+    this.setState({ clients: clientsFromDB.data })
+
   }
 
   postToDB = async () => {
     let data = await require("../src/data.json")
     // console.log(data.map(d => d.name))
 
-    this.setState({
-      clients : data
-    })
+    data.map(async c => await axios.post('http://localhost:4500/newClient', c))
+    this.getDataFromDB()
 
   }
+
+
 
   componentDidMount = async () => {
     // let clientList = await this.getDataFromDB()
     // this.setState({ clients: clientList }, () => {
     //     console.log(this.state.clients)
     // })
-    await this.postToDB()
+    this.postToDB()
   }
 
 

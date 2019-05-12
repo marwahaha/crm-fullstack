@@ -1,19 +1,27 @@
 const express = require('express')
 const router = express.Router()
+const Client = require("../model/Client")
 
 
-// router.get('/transactions', function (req, res) {
+router.get('/clients', function (req, res) {
 
-//     // CHECK IF ROUTE WORKS (POSTMAN)
+    Client.find({}).exec(function (err, clients) {
+        console.log(clients)
+        res.send(clients)
+    });
+    
 
-//     Transaction.find({}).exec(function (err, transactions) {
-//         console.log(transactions)
-//         res.send(transactions)
-//     });
-
-
-// })
+})
 
 
+router.post("/newClient", async function (req, res) {
+    // CHECK IF "POST" WORKS (POSTMAN)
+
+    let data = req.body    
+    let newClient = new Client(data)
+
+    await newClient.save()
+    res.end()
+})
 
 module.exports = router
