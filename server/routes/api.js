@@ -29,9 +29,10 @@ router.get('/clients/actions', async function (req, res) {
     res.send(mappedClients)
 })
 
-router.put('/owner/:id/:owner', function (req, res) {
+router.put('/owner/:id/:newOwner', function (req, res) {
+
     const id = req.params.id
-    const owner = req.params.owner
+    const owner = req.params.newOwner
 
     console.log(id)
     console.log(owner)
@@ -41,6 +42,7 @@ router.put('/owner/:id/:owner', function (req, res) {
     update.then(function (client) {
         res.send("Client's owner has updated to " + owner)
     })
+
 })
 
 module.exports = router

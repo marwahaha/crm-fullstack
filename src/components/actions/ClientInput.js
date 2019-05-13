@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 
 
 class ClientInput extends Component {
-    constructor(){
-        super()
-        this.state={
-            name: ""
-        }
+  
+
+    changeValue = e => {
+        this.props.changeValue(e)
     }
 
-    
-    setName = e => this.setState({ name: e.target.value })
-    
 
     render() {
 
@@ -20,9 +16,9 @@ class ClientInput extends Component {
         return (
             <div id="clientInput">
                 <span>Client Name:  </span>
-                <input list="clientNames" name="id" onChange={this.setName}/>
+                <input list="clientNames" id="clientToUpdate" onChange={this.changeValue} />
                 <datalist id="clientNames">
-                    {clients.map((c, i)  => <option key={i} value={c.name} />)}
+                    {clients.map((c, i) => <option key={i} value={c.name} />)}
                 </datalist>
             </div>
         );
