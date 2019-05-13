@@ -4,37 +4,50 @@ import ClientInput from './ClientInput';
 import "../../css/update.css"
 
 class Update extends Component {
-    
+
     constructor() {
         super()
         this.state = {
-            
+
             clientsMapped: [],
             clientToUpdate: "",
             selectedNewOwner: "",
+            selectedEmailType: "",
             owners: [],
             emailTypes: [],
             selectedClient: "",
             selectedNewOwner: ""
-            
+
         }
     }
-    
+
     changeValue = e => this.setState({ [e.target.id]: e.target.value }, () => {
         console.log(this.state.clientToUpdate)
         console.log(this.state.selectedNewOwner)
-    
+        console.log(this.state.selectedEmailType)
+
+
     })
 
-    
+
     transferOwner = async () => {
-        
+
         let filteredClient = this.state.clientsMapped.filter(c => c.name == this.state.clientToUpdate)
         let filteredClientId = filteredClient.map(f => f._id)
         // console.log(filteredClientId.toString())
         await axios.put(`http://localhost:4500/owner/${filteredClientId.toString()}/${this.state.selectedNewOwner}`)
     }
-    
+
+    UpdateEmailType = async () => {
+        let filteredClient = this.state.clientsMapped.filter(c => c.name == this.state.clientToUpdate)
+        let filteredClientId = filteredClient.map(f => f._id)
+
+        console.log(this.state.selectedEmailType)
+
+        await axios.put(`http://localhost:4500/emailType/${filteredClientId.toString()}/${this.state.selectedEmailType}`)
+
+    }
+
     getOwnersList = () => {
         let owners = new Set()
         this.state.clientsMapped.forEach(c => owners.add(c.owner))
@@ -46,12 +59,6 @@ class Update extends Component {
         this.state.clientsMapped.forEach(c => emailTypes.add(c.emailType))
         this.setState({ emailTypes: Array.from(emailTypes) })
     }
-
-
-
-
-
-
 
 
 
@@ -83,10 +90,10 @@ class Update extends Component {
                 </div>
 
                 <div className="sendEmail">Send email :
-                <select>
-                        {this.state.emailTypes.map(e => <option id="" value="owner" onChange={this.changeValue}>{e}</option>)}
+                <select id="selectedEmailType" onChange={this.changeValue}>
+                        {this.state.emailTypes.map(e => <option value={e} onChange={this.changeValue}>{e}</option>)}
                     </select>
-                    <span onClick={this.getEmailTypeList} className="updateBtns">SEND</span>
+                    <span onClick={this.UpdateEmailType} className="updateBtns">SEND</span>
                 </div>
 
                 <div className="declareSale">Declare sale!

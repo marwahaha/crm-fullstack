@@ -45,4 +45,20 @@ router.put('/owner/:id/:newOwner', function (req, res) {
 
 })
 
+router.put('/emailType/:id/:newEmailType', function (req, res) {
+
+    const id = req.params.id
+    const email = req.params.newEmailType
+
+    console.log(id)
+    console.log(email)
+
+
+    let update = Client.findOneAndUpdate({ _id: id }, { emailType: email })
+    update.then(function (client) {
+        res.send("Client's email type has updated to " + email)
+    })
+
+})
+
 module.exports = router
