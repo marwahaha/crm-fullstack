@@ -22,13 +22,7 @@ class Update extends Component {
         }
     }
 
-    changeValue = e => this.setState({ [e.target.id]: e.target.value }, () => {
-        console.log(this.state.clientToUpdate)
-        console.log(this.state.selectedNewOwner)
-        console.log(this.state.selectedEmailType)
-
-
-    })
+    changeValue = e => this.setState({ [e.target.id]: e.target.value })
 
 
     transferOwner = async () => {

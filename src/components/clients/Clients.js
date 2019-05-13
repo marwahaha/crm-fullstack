@@ -37,10 +37,6 @@ class Clients extends Component {
 
     }
 
-    toggleModal = (id) => {
-        console.log(id)
-        this.setState({ showModal: !this.state.showModal })
-    }
 
     render() {
 
@@ -51,8 +47,7 @@ class Clients extends Component {
 
                 <Headers />
                 <div>
-                    {data.map((d, i) => <Client key={i} client={d}
-                        toggleModal={this.toggleModal} />)}
+                    {data.map((d, i) => <Client key={i} client={d} />)}
                 </div>
             </div>
         );

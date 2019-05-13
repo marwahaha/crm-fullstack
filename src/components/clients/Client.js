@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "../../css/client.css"
-import Modal from './Modal';
+import PopUp from './PopUp';
 
 class Client extends Component {
 
@@ -8,23 +8,16 @@ class Client extends Component {
         super()
         this.state = {
 
-         showModal: false
+         showPopUp: false
 
         }
     }
 
-    toggleModal = () => {
+    togglePopUp = () => {
 
-        this.setState({ showModal: !this.state.showModal })
-        this.props.toggleModal(this.props.client._id)
+        this.setState({ showPopUp: !this.state.showPopUp })
 
     }
-
-    // splitName = (fullName) => {
-    //     let splitName = fullName.split(" ")
-    //     return splitName[0]
-    // }
-
 
     render() {
 
@@ -33,7 +26,7 @@ class Client extends Component {
 
         return (
 
-            <div onClick={this.toggleModal} id="client">
+            <div onClick={this.togglePopUp} id="client">
 
                 <span>{splitName[0]}</span>
                 <span>{splitName[1]}</span>
@@ -42,8 +35,8 @@ class Client extends Component {
                 <span>{client.emailType}</span>
                 <span>{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
                 <span>{client.owner}</span>
-                <span>{client.country}</span>
-                {/* <span>{this.state.showModal ? <Modal name={splitName[0]} sureName={splitName[1]} country={client.country}/> : null}</span> */}
+                <span>{client.country}</span>   
+                <span>{this.state.showPopUp ? <PopUp name={splitName[0]} surName={splitName[1]} country={client.country}/> : null}</span>
 
 
             </div>
