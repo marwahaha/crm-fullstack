@@ -13,6 +13,7 @@ class Update extends Component {
             clientToUpdate: "",
             selectedNewOwner: "",
             selectedEmailType: "",
+            sold: null,
             owners: [],
             emailTypes: [],
             selectedClient: "",
@@ -31,20 +32,30 @@ class Update extends Component {
 
 
     transferOwner = async () => {
-
-        let filteredClient = this.state.clientsMapped.filter(c => c.name == this.state.clientToUpdate)
-        let filteredClientId = filteredClient.map(f => f._id)
-        // console.log(filteredClientId.toString())
-        await axios.put(`http://localhost:4500/owner/${filteredClientId.toString()}/${this.state.selectedNewOwner}`)
+        let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
+        console.log(filteredClient._id)
+        await axios.put(`http://localhost:4500/owner/${filteredClient._id}/${this.state.selectedNewOwner}`)
     }
 
     UpdateEmailType = async () => {
-        let filteredClient = this.state.clientsMapped.filter(c => c.name == this.state.clientToUpdate)
-        let filteredClientId = filteredClient.map(f => f._id)
-
+        let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
+        console.log(filteredClient._id)        
         console.log(this.state.selectedEmailType)
 
-        await axios.put(`http://localhost:4500/emailType/${filteredClientId.toString()}/${this.state.selectedEmailType}`)
+        await axios.put(`http://localhost:4500/emailType/${filteredClient._id}/${this.state.selectedEmailType}`)
+
+    }
+
+    declareSale = async () => {
+
+        let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
+        console.log(filteredClient.sold)
+        if (filteredClient.sold) {
+            return
+        }
+        else {
+            await axios.put(`http://localhost:4500/declareSold/${filteredClient._id}`)
+        }
 
     }
 
@@ -75,7 +86,6 @@ class Update extends Component {
     }
 
 
-
     render() {
         return (
             <div id="update">
@@ -97,7 +107,7 @@ class Update extends Component {
                 </div>
 
                 <div className="declareSale">Declare sale!
-                <span onClick={this.getEmailTypeList} className="updateBtns">DECLARE</span>
+                <span onClick={this.declareSale} className="updateBtns">DECLARE</span>
                 </div>
 
             </div>

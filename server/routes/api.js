@@ -25,7 +25,7 @@ router.post("/newClient", async function (req, res) {
 
 router.get('/clients/actions', async function (req, res) {
     let clients = await getClients()
-    let mappedClients = clients.map(c => { return { _id: c._id, name: c.name, owner: c.owner, emailType: c.emailType } })
+    let mappedClients = clients.map(c => { return { _id: c._id, name: c.name, owner: c.owner, emailType: c.emailType , sold : c.sold} })
     res.send(mappedClients)
 })
 
@@ -60,5 +60,20 @@ router.put('/emailType/:id/:newEmailType', function (req, res) {
     })
 
 })
+
+router.put('/declareSold/:id', function (req, res) {
+
+    const id = req.params.id
+
+    console.log(id)
+
+
+    let update = Client.findOneAndUpdate({ _id: id }, { sold: true })
+    update.then(function (client) {
+        res.send("Client's sold status has updated to " + true)
+    })
+
+})
+
 
 module.exports = router
