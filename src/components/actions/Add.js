@@ -18,18 +18,11 @@ class Add extends Component {
     changeValue = e => this.setState({ [e.target.id]: e.target.value })
 
 
-    getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        let num = Math.floor(Math.random() * (max - min + 1)) + min;
-        return num.toString()
-    }
-
     addClient = async () => {
         let newClient = {
 
-            _id : this.getRandomIntInclusive(),
-            name : `${this.state.name} + ${this.state.surName}`,
+            _id : "",
+            name : `${this.state.name} ${this.state.surName}`,
             email : "",
             firstContact : "",
             emailType : null,

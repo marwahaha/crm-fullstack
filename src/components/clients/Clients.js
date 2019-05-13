@@ -25,7 +25,6 @@ class Clients extends Component {
         let data = await require("../../data.json")
 
         data.map(async c => await axios.post('http://localhost:4500/newClient', c))
-        this.getDataFromDB()
 
     }
 
@@ -33,7 +32,8 @@ class Clients extends Component {
 
     componentDidMount = async () => {
 
-        this.postToDB()
+        await this.getDataFromDB()
+    
 
     }
 

@@ -3,26 +3,30 @@ const router = express.Router()
 const Client = require("../model/Client")
 
 
-router.get('/clients', function (req, res) {
+getClients = async () => Client.find({})
 
-    Client.find({}).exec(function (err, clients) {
-        console.log(clients)
-        res.send(clients)
-    });
-    
 
+router.get('/clients', async function(req, res) {
+    let clients = await getClients()
+    res.send(clients)
 })
 
 
 router.post("/newClient", async function (req, res) {
-    // CHECK IF "POST" WORKS (POSTMAN)
-    console.log(req.data)
+
+    console.log("Got new client")
 
     let data = req.body    
     let newClient = new Client(data)
 
     await newClient.save()
     res.end()
+})
+
+router.get('/clients/actions', async function(req, res) {
+    let clients = await getClients()
+    let mappedClients = clients.map(c => {return {_id: c._id, name: c.name, owner: c.owner}})
+    res.send(mappedClients)
 })
 
 module.exports = router
