@@ -13,6 +13,7 @@ class Client extends Component {
         }
     }
 
+    // Get this out to the Clients and from here call a method that will update state there
     togglePopUp = () => {
 
         this.setState({ showPopUp: !this.state.showPopUp })
@@ -36,7 +37,8 @@ class Client extends Component {
                 <span>{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
                 <span>{client.owner}</span>
                 <span>{client.country}</span>   
-                <span>{this.state.showPopUp ? <PopUp name={splitName[0]} surName={splitName[1]} country={client.country}/> : null}</span>
+    
+                <span>{this.state.showPopUp ? <PopUp name={splitName[0]} surName={splitName[1]} country={client.country} id={client._id}/> : null}</span> 
 
 
             </div>
