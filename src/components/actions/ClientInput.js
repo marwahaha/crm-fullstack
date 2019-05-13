@@ -10,19 +10,18 @@ class ClientInput extends Component {
     }
 
     
-    setName = event => this.setState({ name: event.target.value })
+    setName = e => this.setState({ name: e.target.value })
     
 
     render() {
 
         let clients = this.props.clients
-        console.log(clients)
 
         return (
             <div id="clientInput">
                 <span>Client Name:  </span>
-                <input list="namesList" name="id" onChange={this.setName}/>
-                <datalist id="namesList">
+                <input list="clientNames" name="id" onChange={this.setName}/>
+                <datalist id="clientNames">
                     {clients.map((c, i)  => <option key={i} value={c.name} />)}
                 </datalist>
             </div>

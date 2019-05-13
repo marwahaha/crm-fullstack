@@ -1,0 +1,25 @@
+#update {
+    display: grid ;
+}
+
+.transerOwnership {
+
+    grid-template-columns: repeat(3, 1fr) ;
+
+}
+.sendEmail {
+
+    grid-template-columns: repeat(3, 1fr) ;
+
+}
+
+.declareSale {
+
+    grid-template-columns: 1fr 1fr ;
+
+}
+.updateBtns {
+    background-color: #f9ca24;
+    justify-content: center;
+    align-content: center;
+}
