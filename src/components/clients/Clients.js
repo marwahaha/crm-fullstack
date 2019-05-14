@@ -45,11 +45,13 @@ class Clients extends Component {
 
     togglePopUp = (singleClientData) => {
 
-    
-        this.setState({
-            showPopUp: !this.state.showPopUp,
-            singleClientData: singleClientData
-        })
+        let clients = [...this.state.clients]
+        // let singleClient = clients.find
+
+            this.setState({
+                showPopUp: !this.state.showPopUp,
+                singleClientData: singleClientData
+            })
     }
 
 
@@ -80,7 +82,7 @@ class Clients extends Component {
                         togglePopUp={this.togglePopUp} />) :
                         filteredClients.map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
 
-                    {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData} /> : null}
+                    {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData} getDataFromDB={this.getDataFromDB} /> : null}
 
                 </div>
             </div>

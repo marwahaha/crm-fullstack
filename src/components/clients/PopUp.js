@@ -25,16 +25,14 @@ class PopUp extends Component {
 
       id: this.state.id,
       name: this.state.name,
-      surName: this.state.name,
       country: this.state.country
 
     }
 
-    console.log(clientData)
+    let response = await axios.put(`http://localhost:4500/updateClientPopUp/`, clientData)
+    this.props.getDataFromDB()
 
-
-    await axios.put(`http://localhost:4500/updateClientPopUp/`, clientData)
-    
+  
 
   }
 

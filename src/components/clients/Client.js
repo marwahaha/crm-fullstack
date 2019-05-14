@@ -3,7 +3,7 @@ import "../../css/client.css"
 import PopUp from './PopUp';
 
 class Client extends Component {
-    
+
 
     togglePopUp = () => {
         let singleClientData = {
