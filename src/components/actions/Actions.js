@@ -5,9 +5,9 @@ import "../../css/actions.css"
 
 
 class Actions extends Component {
-   
 
-    
+
+
     render() {
         return (
             <div id="actions">

@@ -1,7 +1,23 @@
+#searchBar {
+    display: grid ;
+    grid-template-columns: 1fr 0.1fr 1fr 6fr ;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+}
+
 input {
     font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid rgb(104, 106, 109);
+    border-bottom: 2px solid rgb(127, 127, 128);
     color : black ;
+}
+
+select {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(127, 127, 128);
+    color : black ;
+
 }

@@ -1,6 +1,8 @@
 
 import React, { Component } from "react";
 import "../../css/popUp.css"
+import axios from 'axios';
+
 
 
 class PopUp extends Component {
@@ -10,21 +12,41 @@ class PopUp extends Component {
     this.state = {
       name: "",
       sureName: "",
-      country: ""
+      country: "",
+      id: ""
     }
   }
 
   changeValue = e => this.setState({ [e.target.id]: e.target.value })
 
-  updatePoppedUpClient = () => {
-    console.log(this.props.id)
+  updatePoppedClient = async () => {
+
+    const clientData = {
+
+      id: this.state.id,
+      name: this.state.name,
+      surName: this.state.name,
+      country: this.state.country
+
+    }
+
+    console.log(clientData)
+
+
+    await axios.put(`http://localhost:4500/updateClientPopUp/`, clientData)
+    
+
   }
 
   componentDidMount = () => {
+
+    let clientName = this.props.clientData.name.split(" ")
+
     this.setState({
-      name: this.props.name,
-      surName: this.props.surName,
-      country: this.props.country
+      name: clientName[0],
+      surName: clientName[1],
+      country: this.props.clientData.country,
+      id: this.props.clientData.id
     })
   }
 
@@ -35,11 +57,11 @@ class PopUp extends Component {
 
 
       <span id="popUp">
-        <i class="far fa-window-close"></i>
+        <i className="far fa-window-close"></i>
         <span className="inputField">Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></span>
-        <span className="inputField">Sure Name : <input type="text" id="sureName" value={this.state.surName} onChange={this.changeValue} /></span>
-        <span className="inputField">Sure Name : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></span>
-        <div onClick={this.updatePoppedUpClient} className="updateBtn">Update</div>
+        <span className="inputField">SurName : <input type="text" id="surName" value={this.state.surName} onChange={this.changeValue} /></span>
+        <span className="inputField">country : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></span>
+        <div onClick={this.updatePoppedClient} className="updateBtn">Update</div>
 
 
       </span>

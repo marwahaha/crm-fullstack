@@ -15,7 +15,7 @@
     bottom: 0;
     margin: auto;
     /* background-color: #fff; */
-    background-color: rgb(0, 0, 0);
+    background-color:black;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -26,9 +26,11 @@ input {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(104, 106, 109);
-    color : white;
 }
 
+#name, #surName, #country {
+    color : white ;
+}
 .inputField {
     display: grid;
     grid-template-columns: 1fr 1fr;

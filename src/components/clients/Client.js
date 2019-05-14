@@ -3,21 +3,16 @@ import "../../css/client.css"
 import PopUp from './PopUp';
 
 class Client extends Component {
+    
 
-    constructor() {
-        super()
-        this.state = {
-
-         showPopUp: false
-
-        }
-    }
-
-    // Get this out to the Clients and from here call a method that will update state there
     togglePopUp = () => {
+        let singleClientData = {
+            id: this.props.client._id,
+            name: this.props.client.name,
+            country: this.props.client.country
+        }
 
-        this.setState({ showPopUp: !this.state.showPopUp })
-
+        this.props.togglePopUp(singleClientData)
     }
 
     render() {
@@ -36,10 +31,7 @@ class Client extends Component {
                 <span>{client.emailType}</span>
                 <span>{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
                 <span>{client.owner}</span>
-                <span>{client.country}</span>   
-    
-                <span>{this.state.showPopUp ? <PopUp name={splitName[0]} surName={splitName[1]} country={client.country} id={client._id}/> : null}</span> 
-
+                <span>{client.country}</span>
 
             </div>
         );

@@ -20,8 +20,9 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div id="searchClients">
-                <input  name="inputValue" type="text" placeholder="Search" onChange={this.changeValue} value={this.state.inputValue} />
+            <div id="searchBar">
+                <input  name="inputValue" type="text" placeholder="Search by category.." onChange={this.changeValue} value={this.state.inputValue} />
+                <span/>
                 <select name="selectedOption" onChange={this.changeValue} value={this.state.selectedOption}>
                     <option value="name">Name</option>
                     <option value="country">Country</option>
