@@ -15,6 +15,14 @@ class Client extends Component {
         this.props.togglePopUp(singleClientData)
     }
 
+    getFormmatedDate = date => {
+        date = new Date(date);
+        let day = date.getDate() - 1;
+        const month = date.toLocaleString('en-us', { month: 'long' });
+        let year = date.getFullYear();
+        return `${month} ${day}, ${year}`;
+    };
+
     render() {
 
         let client = this.props.client
@@ -24,14 +32,14 @@ class Client extends Component {
 
             <div onClick={this.togglePopUp} id="client">
 
-                <span>{splitName[0]}</span>
-                <span>{splitName[1]}</span>
-                <span>{client.email}</span>
-                <span>{client.firstContact}</span>
-                <span>{client.emailType}</span>
-                <span>{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
-                <span>{client.owner}</span>
-                <span>{client.country}</span>
+                <span className="clientRow">{splitName[0]}</span>
+                <span className="clientRow">{splitName[1]}</span>
+                <span className="clientRow">{client.email}</span>
+                <span className="clientRow">{this.getFormmatedDate(client.firstContact)}</span>
+                <span className="clientRow">{client.emailType}</span>
+                <span className="clientRow">{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
+                <span className="clientRow">{client.owner}</span>
+                <span className="clientRow">{client.country}</span>
 
             </div>
         );

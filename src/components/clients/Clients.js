@@ -27,6 +27,7 @@ class Clients extends Component {
 
     }
 
+
     postToDB = async () => {
         let data = await require("../../data.json")
         data.map(async c => await axios.post('http://localhost:4500/newClient', c))
@@ -82,7 +83,8 @@ class Clients extends Component {
                         togglePopUp={this.togglePopUp} />) :
                         filteredClients.map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
 
-                    {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData} getDataFromDB={this.getDataFromDB} /> : null}
+                    {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData}
+                     getDataFromDB={this.getDataFromDB} togglePopUp={this.togglePopUp}/> : null}
 
                 </div>
             </div>

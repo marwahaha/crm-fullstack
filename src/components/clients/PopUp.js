@@ -12,8 +12,7 @@ class PopUp extends Component {
     this.state = {
       name: "",
       surName: "",
-      country: "",
-      id: ""
+      country: ""
     }
   }
 
@@ -55,7 +54,7 @@ class PopUp extends Component {
 
 
       <span id="popUp">
-        <i className="far fa-window-close"></i>
+        <i onClick={this.props.togglePopUp} className="far fa-window-close"></i>
         <span className="inputField">Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></span>
         <span className="inputField">SurName : <input type="text" id="surName" value={this.state.surName} onChange={this.changeValue} /></span>
         <span className="inputField">country : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></span>

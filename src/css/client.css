@@ -8,3 +8,8 @@
     
 }
 
+.clientRow {
+    width: 50px;
+    justify-self: left ;
+    align-self: center ;
+}
