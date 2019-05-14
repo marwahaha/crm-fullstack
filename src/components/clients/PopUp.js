@@ -11,7 +11,7 @@ class PopUp extends Component {
     super()
     this.state = {
       name: "",
-      sureName: "",
+      surName: "",
       country: "",
       id: ""
     }
@@ -24,7 +24,7 @@ class PopUp extends Component {
     const clientData = {
 
       id: this.state.id,
-      name: this.state.name,
+      name: `${this.state.name} ${this.state.surName}`,
       country: this.state.country
 
     }
