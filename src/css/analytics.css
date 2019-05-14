@@ -1,0 +1,5 @@
+#analytics {
+    display: grid ;
+    grid-template-rows: 1f 2fr 2fr ;
+    
+}

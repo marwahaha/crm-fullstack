@@ -47,7 +47,6 @@ class Clients extends Component {
     togglePopUp = (singleClientData) => {
 
         let clients = [...this.state.clients]
-        // let singleClient = clients.find
 
             this.setState({
                 showPopUp: !this.state.showPopUp,
@@ -57,12 +56,8 @@ class Clients extends Component {
 
 
 
-    componentDidMount = async () => {
-
-        await this.getDataFromDB()
-
-
-    }
+    componentDidMount = async () => await this.getDataFromDB()
+    
 
 
     render() {
