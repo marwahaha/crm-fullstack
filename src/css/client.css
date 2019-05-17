@@ -4,6 +4,7 @@
     font-size: 60%;
     border-bottom: 1px solid rgb(128, 125, 125);
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     margin : 1% ;
     
 }
@@ -11,5 +12,11 @@
 .clientRow {
     width: 50px;
     justify-self: left ;
+    align-self: center ;
+}
+
+.firstContact {
+    width: 50px;
+    justify-self: center ;
     align-self: center ;
 }

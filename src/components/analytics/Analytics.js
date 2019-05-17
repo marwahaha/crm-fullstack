@@ -26,11 +26,10 @@ class Analytics extends Component {
 
 
     render() {
-        console.log(this.state.clients)
         return (
             <div id="analytics">
                 <Badges clientsData={this.state.clients}/>
-                <Charts />
+                <Charts clientsData={this.state.clients}/>
             </div>
         );
     }

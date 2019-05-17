@@ -8,7 +8,6 @@ import HottestCountryBadge from './HottestCountryBadge';
 
 class Badges extends Component {
     render() {
-        console.log("Hi")
         return (
             <div id="badges">
                 <NewClientsBadge clientsData={this.props.clientsData} />

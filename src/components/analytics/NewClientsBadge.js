@@ -15,7 +15,6 @@ class NewClientsBadge extends Component {
 
 
     render() {
-        console.log(new Date().getMonth())
         return (
             <div id="badge">
                 <span id="logoNewest" className="fas fa-chart-line"></span>
