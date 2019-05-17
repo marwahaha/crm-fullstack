@@ -15,6 +15,9 @@ class TopEmployees extends Component {
         return employeeSales
     }
 
+    countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+
+
     createDataArray = (employeeSales) => {
         let dataArr = []
         let employees = Object.keys(employeeSales)

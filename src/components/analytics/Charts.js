@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TopEmployessChart from './TopEmployessChart';
+import EmailsSentBadge from './EmailsSentBadge';
 
 class Charts extends Component {
     render() {
