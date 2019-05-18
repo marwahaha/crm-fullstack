@@ -25,7 +25,6 @@ class HottestCountryBadge extends Component {
     render() {
 
         let hottestCountry = this.getHottestCountry(this.props.clientsData)
-        console.log(hottestCountry)
 
         return (
             <div id="badge">
