@@ -49,10 +49,8 @@ class PopUp extends Component {
 
   render() {
 
-
     return (
-
-
+      
       <span id="popUp">
         <i onClick={this.props.togglePopUp} className="far fa-window-close"></i>
         <span className="inputField">Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></span>

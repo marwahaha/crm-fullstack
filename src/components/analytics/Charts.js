@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import TopEmployessChart from './TopEmployessChart';
-import EmailsSentBadge from './EmailsSentBadge';
+import TopEmployees from './charts/TopEmployees';
+import SalesByX from './charts/SalesByX';
+
 
 class Charts extends Component {
     render() {
-    
+
         return (
             <div>
-                <TopEmployessChart clientsData={this.props.clientsData} />
+                <TopEmployees clientsData={this.props.clientsData} />
+                <SalesByX clientsData={this.props.clientsData} />
             </div>
         );
     }

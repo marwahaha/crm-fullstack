@@ -7,7 +7,7 @@ class OutstandingClientsBadge extends Component {
         let notSold = clients.filter(c => !c.sold)
         return notSold
 
-    }
+    }   
     
     render() {
 
