@@ -1,32 +1,13 @@
-import React, { Component, PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-// import '../../style/SalesByCountryChart.css';
+import React, { Component } from 'react';
 
-
-class SalesByCountryChart extends Component {
-    constructor() {
-        super()
-        this.state = {
-            select: "country"
-        }
-    }
-
-
-
-    generateData = (key) => {
-        
-    }
-
-
-
+class SalesByX extends Component {
     render() {
-        // let data = this.generateData(this.state.select)
-
         return (
-            <div id="salesByCountryChart">
+            <div>
+                
             </div>
         );
     }
 }
 
-export default SalesByCountryChart;
+export default SalesByX;
