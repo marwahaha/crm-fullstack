@@ -14,7 +14,6 @@ router.get('/clients', async function (req, res) {
 
 router.post("/newClient", async function (req, res) {
 
-    console.log("Got new client")
 
     let data = req.body
     let newClient = new Client(data)
@@ -34,10 +33,6 @@ router.put('/owner/:id/:newOwner', function (req, res) {
     const id = req.params.id
     const owner = req.params.newOwner
 
-    console.log(id)
-    console.log(owner)
-
-
     let update = Client.findOneAndUpdate({ _id: id }, { owner: owner })
     update.then(function (client) {
         res.send("Client's owner has updated to " + owner)
@@ -50,10 +45,6 @@ router.put('/emailType/:id/:newEmailType', function (req, res) {
     const id = req.params.id
     const email = req.params.newEmailType
 
-    console.log(id)
-    console.log(email)
-
-
     let update = Client.findOneAndUpdate({ _id: id }, { emailType: email })
     update.then(function (client) {
         res.send("Client's email type has updated to " + email)
@@ -64,9 +55,6 @@ router.put('/emailType/:id/:newEmailType', function (req, res) {
 router.put('/declareSold/:id', function (req, res) {
 
     const id = req.params.id
-
-    console.log(id)
-
 
     let update = Client.findOneAndUpdate({ _id: id }, { sold: true })
     update.then(function (client) {
@@ -79,8 +67,6 @@ router.put('/declareSold/:id', function (req, res) {
 router.put('/updateClientPopUp/', function (req, res) {
 
     const clientData = req.body
-    console.log(clientData)
-
 
     let update = Client.findOneAndUpdate({ _id: clientData.id }, { name : clientData.name, country : clientData.country })
     update.then(function (client) {
