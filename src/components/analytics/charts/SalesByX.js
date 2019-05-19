@@ -1,75 +1,108 @@
-import React, { Component } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import "../../../css/salesByX.css"
+import React, { Component } from 'react'
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts'
+
 
 class SalesByX extends Component {
+
     constructor() {
         super()
         this.state = {
-            selectedCountry: "country"
+            selection: "country",
         }
     }
 
-    changeValue = event => this.setState({ [event.target.name]: event.target.value })
-    getFullMonth = (date = new Date()) => new Intl.DateTimeFormat('en-US', { month: "long" }).format(date).slice(0, 3)
+    handleSelection = e => this.setState({ selection: e.target.value })
 
-    getDataSet = (selection) => {
-        let AllData = new Set()
-        selection == "month" ?
-            this.props.clientsData.forEach(c => AllData.add(this.getFullMonth(new Date(c.firstContact)))) :
-            this.props.clientsData.forEach(c => c[selection] ? AllData.add(c[selection]) : null)
-        return Array.from(AllData)
+    getFullMonth = date => new Intl.DateTimeFormat('en-US', { month: "short" }).format(date)
+
+    sortMonths = monthsArr => {
+        const monthsOrder = {
+            "Jan": 1,
+            "Feb": 2,
+            "Mar": 3,
+            "Apr": 4,
+            "May": 5,
+            "Jun": 6,
+            "Jul": 7,
+            "Aug": 8,
+            "Sep": 9,
+            "Oct": 10,
+            "Nov": 11,
+            "Dec": 12
+        }
+
+        return monthsArr.sort((a, b) => monthsOrder[a] - monthsOrder[b])
     }
 
-    generateData = (selection) => {
-        let AllData = this.getDataSet(selection)
-        let dataArray = []
-        AllData.forEach(d => dataArray.push({ name: d, sales: 0 }))
-        for (let c of this.props.clientsData) {
-            for (let i in dataArray) {
-                if (dataArray[i].name === c[selection]) {
-                    dataArray[i].sales++
-                } else if (dataArray[i].name === this.getFullMonth(new Date(c.firstContact))) {
-                    dataArray[i].sales++
+    createDataObject = (clients, selection) => {
+        let dataObj = {}
+
+        for (let client of clients) {
+
+            if (client.sold) {
+                if (selection === "firstContact") {
+                    let date = this.getFullMonth(new Date(client[selection]))
+                    dataObj[date] ? dataObj[date]++ : dataObj[date] = 1
+                } else {
+                    dataObj[client[selection]] ? dataObj[client[selection]]++ : dataObj[client[selection]] = 1
                 }
             }
         }
-        return dataArray
+
+        return dataObj
     }
 
+    generateSalesByDataPoint = (clients, selection) => {
+
+        let dataObj = this.createDataObject(clients, selection)
+        let dataArr = []
+        let dataKeys = selection === "firstContact" ? this.sortMonths(Object.keys(dataObj)) : Object.keys(dataObj)
+
+        for (let item of dataKeys) {
+            dataArr.push({ name: item.split(" ")[0], sales: dataObj[item] })
+        }
+
+        return dataArr
+    }
+
+    getChartDataBySelection = () => {
+        if (this.state.selection === "country") {
+            return this.generateSalesByDataPoint(this.props.clientsData, "country")
+        } else if (this.state.selection === "email") {
+            return this.generateSalesByDataPoint(this.props.clientsData, "emailType")
+        } else if (this.state.selection === "month") {
+            return this.generateSalesByDataPoint(this.props.clientsData, "firstContact")
+        } else if (this.state.selection === "owner") {
+            return this.generateSalesByDataPoint(this.props.clientsData, "owner")
+        }
+    }
 
     render() {
-        let data = this.generateData(this.state.selectedCountry)
+
+        const data = this.getChartDataBySelection()
 
         return (
-            <div id="salesByCountryChart">
-                <div className="title">Sales By
-                    <select name="select" id="" onChange={this.changeValue}>
-                        <option value="country">Country</option>
-                        <option value="owner">Owner</option>
-                        <option value="emailType">Email Type</option>
-                        <option value="month">Month</option>
-                    </select>
-                </div>
-                <ResponsiveContainer width="100%" height="90%">
+            <div id="sales-by" className="chart">
+                <h5>Sales By:</h5>
+                <select id="sales-by-selection" value={this.state.selection} onChange={this.handleSelection}>
+                    <option value="country">Country</option>
+                    <option value="email">Email</option>
+                    <option value="month">Month</option>
+                    <option value="owner">Owner</option>
+                </select>
 
-                    <BarChart
-                        data={data}
-                        margin={{
-                            top: 5, right: 30, left: 20, bottom: 5,
-                        }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis dataKey="sales" />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="sales" fill="green" />
-                    </BarChart>
-                </ResponsiveContainer>
+                <BarChart width={700} height={250} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="sales" fill="#955196" />
+                </BarChart>
+
             </div>
-        );
+        )
     }
 }
 
-export default SalesByX;
+export default SalesByX

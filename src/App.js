@@ -8,10 +8,7 @@ import Clients from './components/clients/Clients';
 import Actions from './components/actions/Actions';
 import Analytics from './components/analytics/Analytics';
 
-
-
-
-
+  
 class App extends Component {
   constructor() {
     super()
