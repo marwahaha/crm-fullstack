@@ -1,8 +1,14 @@
 #searchBar {
     display: grid ;
-    grid-template-columns: 1fr 0.1fr 1fr 6fr ;
+    grid-template-columns: 3fr 5fr;
     margin-top: 2% ;
     margin-bottom: 2%;
+}
+
+#pagination {
+     justify-self: right ;
+     margin-right: 5%;
+     margin-top: 1%;
 }
 
 input {

@@ -18,9 +18,13 @@ class SearchBar extends Component {
         this.handleSearch() 
     }
 
+    pageForward = () => this.props.HandlePagination("forward")
+    pageBack = () => this.props.HandlePagination("back")
+
     render() {
         return (
             <div id="searchBar">
+                <div>
                 <input  name="inputValue" type="text" placeholder="Search by category.." onChange={this.changeValue} value={this.state.inputValue} />
                 <span/>
                 <select name="selectedOption" onChange={this.changeValue} value={this.state.selectedOption}>
@@ -29,6 +33,11 @@ class SearchBar extends Component {
                     <option value="owner">Owner</option>
                 </select>
             </div>
+            <div id="pagination"> 
+            <span className="fas fa-chevron-left" onClick={this.pageBack}></span>
+            <span>{this.props.paginationIndex} - {this.props.paginationIndex + 20}</span>
+            <span className="fas fa-chevron-right" onClick={this.pageForward}></span>
+        </div></div>
         );
     }
 }

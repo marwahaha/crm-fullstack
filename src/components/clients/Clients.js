@@ -4,7 +4,6 @@ import Client from './Client';
 import Headers from './Headers';
 import SearchBar from './SearchBar';
 import PopUp from './PopUp';
-import Pagination from './Pagination';
 
 
 class Clients extends Component {
@@ -81,8 +80,9 @@ class Clients extends Component {
             <div>
 
                 <Headers />
-                <SearchBar handleSearch={this.handleSearch} />
-                <Pagination HandlePagination={this.HandlePagination} paginationIndex={this.state.paginationIndex} />
+                <SearchBar handleSearch={this.handleSearch} 
+                HandlePagination={this.HandlePagination} 
+                paginationIndex={this.state.paginationIndex}/>
                 <div>
                     {this.state.inputValue == "" ? clients.slice(paginationIndex, paginationIndex + 19).map((c, i) => <Client key={i} client={c}
                         togglePopUp={this.togglePopUp} />) :
