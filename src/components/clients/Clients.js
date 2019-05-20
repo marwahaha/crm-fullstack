@@ -4,6 +4,7 @@ import Client from './Client';
 import Headers from './Headers';
 import SearchBar from './SearchBar';
 import PopUp from './PopUp';
+import Pagination from './Pagination';
 
 
 class Clients extends Component {
@@ -15,7 +16,9 @@ class Clients extends Component {
             inputValue: "",
             selectedOption: "",
             showPopUp: false,
-            singleClientData: ""
+            singleClientData: "",
+            paginationIndex: 0,
+            highPagination: 19
 
         }
     }
@@ -48,24 +51,30 @@ class Clients extends Component {
 
         let clients = [...this.state.clients]
 
-            this.setState({
-                showPopUp: !this.state.showPopUp,
-                singleClientData: singleClientData
-            })
+        this.setState({
+            showPopUp: !this.state.showPopUp,
+            singleClientData: singleClientData
+        })
     }
 
 
 
     componentDidMount = async () => await this.getDataFromDB()
-    
+
+
+    HandlePagination = (action) => {
+
+        if (action == "forward" && this.state.paginationIndex + 20 <= this.state.clients.length) { this.setState({ paginationIndex: this.state.paginationIndex + 20 }) }
+        if (action == "back" && this.state.paginationIndex > 0) { this.setState({ paginationIndex: this.state.paginationIndex - 20 }) }
+    }
+
 
 
     render() {
 
         let clients = this.state.clients
         let filteredClients = this.state.filteredClients
-
-
+        let paginationIndex = this.state.paginationIndex
 
         return (
 
@@ -73,13 +82,14 @@ class Clients extends Component {
 
                 <Headers />
                 <SearchBar handleSearch={this.handleSearch} />
+                <Pagination HandlePagination={this.HandlePagination} paginationIndex={this.state.paginationIndex} />
                 <div>
-                    {this.state.inputValue == "" ? clients.map((c, i) => <Client key={i} client={c}
+                    {this.state.inputValue == "" ? clients.slice(paginationIndex, paginationIndex + 19).map((c, i) => <Client key={i} client={c}
                         togglePopUp={this.togglePopUp} />) :
-                        filteredClients.map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
+                        filteredClients.slice(paginationIndex, paginationIndex + 20).map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
 
                     {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData}
-                     getDataFromDB={this.getDataFromDB} togglePopUp={this.togglePopUp}/> : null}
+                        getDataFromDB={this.getDataFromDB} togglePopUp={this.togglePopUp} /> : null}
 
                 </div>
             </div>
