@@ -1,4 +1,31 @@
 #charts {
-    display: grid ;
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    width: 70vh;
+    grid-template-areas: 
+    "te sb sb"
+    "ss ss ca"
+}
+
+#topEmployees {
+    grid-area: te;
+    align-self: center;
+    margin-left: 4%;
+}
+
+#salesSince {
+    grid-area: ss;
+    align-self: center;
+    margin-left: 4%;
+
+}
+
+#salesByX { 
+    grid-area: sb;
+    align-self: center;
+}
+
+#clientAcquisition {
+    grid-area: ca;
+    margin-bottom: 3%;
+    align-self: center;
 }

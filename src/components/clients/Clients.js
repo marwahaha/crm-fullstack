@@ -84,7 +84,7 @@ class Clients extends Component {
                 HandlePagination={this.HandlePagination} 
                 paginationIndex={this.state.paginationIndex}/>
                 <div>
-                    {this.state.inputValue == "" ? clients.slice(paginationIndex, paginationIndex + 19).map((c, i) => <Client key={i} client={c}
+                    {this.state.inputValue == "" ? clients.slice(paginationIndex, paginationIndex + 20).map((c, i) => <Client key={i} client={c}
                         togglePopUp={this.togglePopUp} />) :
                         filteredClients.slice(paginationIndex, paginationIndex + 20).map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
 

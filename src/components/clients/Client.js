@@ -36,8 +36,8 @@ class Client extends Component {
                 <span className="clientRow">{splitName[1]}</span>
                 <span className="clientRow">{client.email}</span>
                 <span className="firstContact">{this.getFormmatedDate(client.firstContact)}</span>
-                <span className="clientRow">{client.emailType}</span>
-                <span className="clientRow">{client.sold == true ? <span>Yes</span> : <span>No</span>}</span>
+                <span className="clientRow">{client.emailType == null ? "N/A" : client.emailType}</span>
+                <span className="clientRow">{client.sold == true ? <span class="fas fa-check"></span> : <span class="fas fa-times"></span>}</span>
                 <span className="clientRow">{client.owner}</span>
                 <span className="clientRow">{client.country}</span>
 

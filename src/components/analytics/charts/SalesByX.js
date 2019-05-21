@@ -82,7 +82,7 @@ class SalesByX extends Component {
         const data = this.getChartDataBySelection()
 
         return (
-            <div id="sales-by" className="chart">
+            <div id="salesByX" className="chart">
                 <h5>Sales By:</h5>
                 <select id="sales-by-selection" value={this.state.selection} onChange={this.handleSelection}>
                     <option value="country">Country</option>
@@ -91,7 +91,7 @@ class SalesByX extends Component {
                     <option value="owner">Owner</option>
                 </select>
 
-                <BarChart width={700} height={250} data={data}>
+                <BarChart width={650} height={160} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />

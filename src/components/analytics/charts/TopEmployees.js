@@ -46,11 +46,11 @@ class TopEmployees extends Component {
         let dataForChart = this.generateTopEmployees(this.props.clientsData)
 
         return (
-            <div id="top-emp" className="chart">
+            <div id="topEmployees" className="chart">
             <h5>Top Employees</h5>
                 <ComposedChart
                     layout="vertical"
-                    width={500}
+                    width={400}
                     height={250}
                     data={dataForChart}
                     margin={{

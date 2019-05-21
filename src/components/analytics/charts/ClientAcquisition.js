@@ -62,10 +62,10 @@ class ClientAcquisition extends Component {
         const data = this.getDataForChart()
 
         return (
-            <div>
+            <div id="clientAcquisition">
                 <h5 id="client-acq-header">Client Acquisition</h5>
 
-                <PieChart width={400} height={300} >
+                <PieChart width={350} height={300} >
                     <Pie dataKey="clients" isAnimationActive={true} data={data} cx={200} cy={150} outerRadius={80} label />
                     <Tooltip />
                 </PieChart>
