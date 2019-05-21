@@ -14,8 +14,8 @@
     right: 0;
     bottom: 0;
     margin: auto;
-    /* background-color: #fff; */
     background-color:black;
+    opacity: 0.95;
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;

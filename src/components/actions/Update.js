@@ -33,7 +33,7 @@ class Update extends Component {
 
     UpdateEmailType = async () => {
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
-        console.log(filteredClient._id)        
+        console.log(filteredClient._id)
         console.log(this.state.selectedEmailType)
 
         await axios.put(`http://localhost:4500/emailType/${filteredClient._id}/${this.state.selectedEmailType}`)

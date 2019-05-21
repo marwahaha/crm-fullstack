@@ -11,13 +11,13 @@
 }
 
 .clientRow {
-    width: 50px;
+    width: 6%;
     justify-self: left ;
     align-self: center ;
 }
 
 .firstContact {
-    width: 50px;
+    width: 80%;
     justify-self: center ;
     align-self: center ;
 }

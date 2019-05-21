@@ -1,25 +1,55 @@
 #update {
     display: grid ;
+    
 }
 
-.transerOwnership {
-
-    grid-template-columns: repeat(3, 1fr) ;
+.transferOwnership {
+    display: grid ;
+    align-items: center;
+    align-self: center;
+    width : 44% ;
+    grid-template-columns: 2fr 2fr 1fr ;
 
 }
 .sendEmail {
-
-    grid-template-columns: repeat(3, 1fr) ;
+    display: grid ;
+    width : 40% ;
+    align-items: center;
+    grid-template-columns: 2fr 2fr 1fr ;
 
 }
 
 .declareSale {
-
-    grid-template-columns: 1fr 1fr ;
+    display: grid ;
+    width : 100% ;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 9fr ;
 
 }
 .updateBtns {
-    background-color: #f9ca24;
+    display: grid;
+    width: 100px;
+    height: 20px;
+    margin-top: 13px;
+    margin-left: 20px;
     justify-content: center;
     align-content: center;
+    align-self: center;
+    justify-self: center ;
+    background-color: #f9ca24;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+select {
+    justify-self: left;
+    margin-right: 35%;
+    height: 80%;
+    margin-top: 8%;
+}
+
+#selectedEmailType {
+    justify-self: left;
+    margin-right: 60%;
+    height: 20px;
 }

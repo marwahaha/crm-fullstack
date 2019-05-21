@@ -2,13 +2,12 @@
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 7fr;
     background-color: rgb(110, 104, 104);
+    padding: 1%
 }
 
 #navBar>a {
-    /* justify-self: center;
-    align-self: center; */
     text-decoration: none;
-    color: rgb(139, 207, 29);
+    color: #f9ca24;
     font-size: 15px;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
