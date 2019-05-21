@@ -16,9 +16,9 @@ class EmailsSentBadge extends Component {
 
         return (
             <div id="badge">
-                <span id="logoEmails" className="fas fa-envelope"></span>
+                <span id="logoEmails" className="fas fa-envelope icon"></span>
                 <span id="value">{numOfEmails.length}</span>
-                <span id="text">Emails </span>
+                <span id="text">Emails Sent</span>
             </div>
         );
     }

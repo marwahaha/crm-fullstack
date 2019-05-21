@@ -1,8 +1,13 @@
 #searchBar {
     display: grid ;
-    grid-template-columns: 3fr 5fr;
+    grid-template-columns: 1fr 1fr 8fr;
     margin-top: 2% ;
     margin-bottom: 2%;
+    justify-content: center ;
+    justify-self: center ;
+    align-content: center ;
+    align-self: center ;
+   
 }
 
 #pagination {
@@ -22,6 +27,7 @@ input {
 
 select {
     font-family: 'Montserrat', sans-serif;
+    /* align-self: center; */
     background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(127, 127, 128);

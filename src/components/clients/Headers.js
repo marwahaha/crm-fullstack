@@ -7,7 +7,6 @@ class Headers extends Component {
             <div id="headers">
                 <span>Name</span>
                 <span>Surname</span>
-                <span>Email</span>
                 <span>First Contact</span>
                 <span>Email Type</span>
                 <span>Sold</span>

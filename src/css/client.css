@@ -1,7 +1,7 @@
 #client {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr 2fr 2fr;
-    font-size: 60%;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr 2fr 2fr;
+    font-size: 80%;
     -webkit-box-shadow: 1px 0px 5px 2px #A3A3A3; 
     box-shadow: 1px 0px 5px 2px #A3A3A3;
     font-family: 'Montserrat', sans-serif;
@@ -11,13 +11,14 @@
 }
 
 .clientRow {
-    width: 6%;
+    display: grid;
+    padding: 5%;
     justify-self: left ;
+    justify-content: center;
     align-self: center ;
 }
 
 .firstContact {
-    width: 80%;
-    justify-self: center ;
+  
     align-self: center ;
 }

@@ -28,7 +28,7 @@ class HottestCountryBadge extends Component {
 
         return (
             <div id="badge">
-            <span id="logoHottest" className="fas fa-globe-americas"></span>
+            <span id="logoHottest" className="fas fa-globe-americas icon"></span>
             <span id="value">{hottestCountry}</span>
             <span id="text">Hottest Country</span>
         </div>

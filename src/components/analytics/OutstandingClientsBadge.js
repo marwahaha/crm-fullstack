@@ -15,7 +15,7 @@ class OutstandingClientsBadge extends Component {
 
         return (
             <div id="badge">
-                <span id="logoOutstanding" className="fas fa-user-circle"></span>
+                <span id="logoOutstanding" className="fas fa-user-circle icon"></span>
                 <span id="value">{numOfOutstanding.length}</span>
                 <span id="text">Outstanding Clients</span>
             </div>

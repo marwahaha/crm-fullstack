@@ -90,7 +90,7 @@ class Update extends Component {
                 <select id="selectedNewOwner" onChange={this.changeValue}>
                         {this.state.owners.map(o => <option value={o}>{o}</option>)}
                     </select>
-                    <span onClick={this.transferOwner} className="updateBtns">TRANSFER</span>
+                    <span onClick={this.transferOwner} id="transferBtn" className="updateBtns">TRANSFER</span>
                 </div>
 
                 <div className="sendEmail">Send email :

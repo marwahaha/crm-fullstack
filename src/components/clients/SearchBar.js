@@ -24,18 +24,18 @@ class SearchBar extends Component {
     render() {
         return (
             <div id="searchBar">
-                <div>
+                
                 <input  name="inputValue" type="text" placeholder="Search by category.." onChange={this.changeValue} value={this.state.inputValue} />
-                <span/>
+                
                 <select name="selectedOption" onChange={this.changeValue} value={this.state.selectedOption}>
                     <option value="name">Name</option>
                     <option value="country">Country</option>
                     <option value="owner">Owner</option>
                 </select>
-            </div>
+            
             <div id="pagination"> 
             <span className="fas fa-chevron-left" onClick={this.pageBack}></span>
-            <span>{this.props.paginationIndex} - {this.props.paginationIndex + 20}</span>
+            <span>{this.props.paginationIndex} - {this.props.paginationIndex + 19}</span>
             <span className="fas fa-chevron-right" onClick={this.pageForward}></span>
         </div></div>
         );

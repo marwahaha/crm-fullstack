@@ -12,12 +12,12 @@ class Clients extends Component {
         this.state = {
             clients: [],
             filteredClients: [],
+            filterUsed: false,
+            showPopUp: false,
             inputValue: "",
             selectedOption: "",
-            showPopUp: false,
             singleClientData: "",
-            paginationIndex: 0,
-            highPagination: 19
+            paginationIndex: 1,
 
         }
     }
@@ -41,7 +41,14 @@ class Clients extends Component {
         let clients = [...this.state.clients]
         let filteredClients = clients.filter(c => c[selectedOption].toLowerCase().includes(inputValue))
 
-        this.setState({ inputValue: inputValue, selectedOption: selectedOption, filteredClients: filteredClients })
+
+        this.setState({ inputValue, selectedOption, filteredClients })
+
+        if (this.state.inputValue !== "") {
+            this.setState({ filterUsed: true })
+        } else {
+            this.setState({ filterUsed: false })
+        }
 
     }
 
@@ -63,8 +70,9 @@ class Clients extends Component {
 
     HandlePagination = (action) => {
 
-        if (action == "forward" && this.state.paginationIndex + 20 <= this.state.clients.length) { this.setState({ paginationIndex: this.state.paginationIndex + 20 }) }
-        if (action == "back" && this.state.paginationIndex > 0) { this.setState({ paginationIndex: this.state.paginationIndex - 20 }) }
+        if (action == "forward" && !this.state.filterUsed && this.state.paginationIndex + 20 <= this.state.clients.length) { this.setState({ paginationIndex: this.state.paginationIndex + 20 }) }        
+        if (action == "forward" && this.state.filterUsed && this.state.paginationIndex + 20 <= this.state.filteredClients.length) { this.setState({ paginationIndex: this.state.paginationIndex + 20 }) }
+        if (action == "back" && this.state.paginationIndex > 1) { this.setState({ paginationIndex: this.state.paginationIndex - 20 }) }
     }
 
 
@@ -80,13 +88,13 @@ class Clients extends Component {
             <div>
 
                 <Headers />
-                <SearchBar handleSearch={this.handleSearch} 
-                HandlePagination={this.HandlePagination} 
-                paginationIndex={this.state.paginationIndex}/>
+                <SearchBar handleSearch={this.handleSearch}
+                    HandlePagination={this.HandlePagination}
+                    paginationIndex={this.state.paginationIndex} />
                 <div>
                     {this.state.inputValue == "" ? clients.slice(paginationIndex, paginationIndex + 20).map((c, i) => <Client key={i} client={c}
                         togglePopUp={this.togglePopUp} />) :
-                        filteredClients.slice(paginationIndex, paginationIndex + 20).map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
+                        filteredClients.slice(paginationIndex - 1, paginationIndex + 19).map((f, i) => <Client key={i} client={f} togglePopUp={this.togglePopUp} />)}
 
                     {this.state.showPopUp ? <PopUp clientData={this.state.singleClientData}
                         getDataFromDB={this.getDataFromDB} togglePopUp={this.togglePopUp} /> : null}

@@ -17,7 +17,7 @@ class NewClientsBadge extends Component {
     render() {
         return (
             <div id="badge">
-                <span id="logoNewest" className="fas fa-chart-line"></span>
+                <span id="logoNewest" className="fas fa-chart-line icon"></span>
                 <span id="value">{this.getNewestClients()}</span>
                 <span id="text">New {this.getMonthName()} Clients</span>
             </div>

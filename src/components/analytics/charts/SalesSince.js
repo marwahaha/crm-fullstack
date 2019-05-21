@@ -59,8 +59,8 @@ class SalesSince extends Component {
                 <h5>Sales since {`${this.getFullMonth(this.getHistoricalDate(30))} ${this.getHistoricalDate(30).getDate()}`}</h5>
 
                 <LineChart
-                    width={600}
-                    height={250}
+                    width={650}
+                    height={300}
                     data={data}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,

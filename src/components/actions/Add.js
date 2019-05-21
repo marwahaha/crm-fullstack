@@ -31,7 +31,6 @@ class Add extends Component {
             country : this.state.country
         
         }
-        console.log(newClient)
         await axios.post('http://localhost:4500/newClient', newClient)
 
     }
@@ -42,10 +41,10 @@ class Add extends Component {
             <div id="add">
 
                 <h5>ADD CLIENT</h5>
-                <div>First Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></div>
-                <div>Surname : <input type="text" id="surName" value={this.state.surName} onChange={this.changeValue} /></div>
-                <div>Country : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></div>
-                <div>Owner : <input type="text" id="owner" value={this.state.owner} onChange={this.changeValue} /></div>
+                <div className="inputRow">First Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></div>
+                <div className="inputRow">Surname : <input type="text" id="surName" value={this.state.surName} onChange={this.changeValue} /></div>
+                <div className="inputRow">Country : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></div>
+                <div className="inputRow">Owner : <input type="text" id="owner" value={this.state.owner} onChange={this.changeValue} /></div>
                 <div onClick={this.addClient} id="addBtn">Add New Client</div>
 
             </div>

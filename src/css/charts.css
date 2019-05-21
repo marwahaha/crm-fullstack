@@ -2,14 +2,15 @@
     display: grid;
     width: 70vh;
     grid-template-areas: 
-    "te sb sb"
-    "ss ss ca"
+    "te  sb"
+    "ss  ca"
 }
 
 #topEmployees {
     grid-area: te;
     align-self: center;
     margin-left: 4%;
+    padding-right: 4%
 }
 
 #salesSince {
@@ -27,5 +28,6 @@
 #clientAcquisition {
     grid-area: ca;
     margin-bottom: 3%;
+    margin-left: 25%;
     align-self: center;
 }

@@ -44,6 +44,10 @@
 
 }
 
+.icon {
+    font-size: 260%;
+}
+
 #logoNewest {
     
     grid-area: i;

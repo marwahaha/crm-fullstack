@@ -50,8 +50,8 @@ class TopEmployees extends Component {
             <h5>Top Employees</h5>
                 <ComposedChart
                     layout="vertical"
-                    width={400}
-                    height={250}
+                    width={520}
+                    height={320}
                     data={dataForChart}
                     margin={{
                         top: 20, right: 20, bottom: 20, left: 20,

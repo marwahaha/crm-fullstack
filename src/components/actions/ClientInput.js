@@ -13,10 +13,10 @@ class ClientInput extends Component {
 
         let clients = this.props.clients
 
-        return (
+        return (    
             <div id="clientInput">
                 <span>Client Name:  </span>
-                <input list="clientNames" id="clientToUpdate" onChange={this.changeValue} />
+                <input className="updateInput" list="clientNames" id="clientToUpdate" onChange={this.changeValue} />
                 <datalist id="clientNames">
                     {clients.map((c, i) => <option key={i} value={c.name} />)}
                 </datalist>
