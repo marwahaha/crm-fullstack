@@ -91,7 +91,7 @@ class SalesByX extends Component {
                     <option value="owner">Owner</option>
                 </select>
 
-                <BarChart width={750} height={250} data={data}>
+                <BarChart width={650} height={250} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />

@@ -59,7 +59,7 @@ class Update extends Component {
         let owners = new Set()
         this.state.clientsMapped.forEach(c => owners.add(c.owner))
         this.setState({ owners: Array.from(owners) })
-    }
+    }   
 
     getEmailTypeList = () => {
         let emailTypes = new Set()
