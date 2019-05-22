@@ -28,7 +28,7 @@ class Update extends Component {
     transferOwner = async () => {
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
         console.log(filteredClient._id)
-        await axios.put(`http://localhost:4500/owner/${filteredClient._id}/${this.state.selectedNewOwner}`)
+        await axios.put(`/owner/${filteredClient._id}/${this.state.selectedNewOwner}`)
     }
 
     UpdateEmailType = async () => {
@@ -36,7 +36,7 @@ class Update extends Component {
         console.log(filteredClient._id)
         console.log(this.state.selectedEmailType)
 
-        await axios.put(`http://localhost:4500/emailType/${filteredClient._id}/${this.state.selectedEmailType}`)
+        await axios.put(`/emailType/${filteredClient._id}/${this.state.selectedEmailType}`)
 
     }
 
@@ -48,7 +48,7 @@ class Update extends Component {
             return
         }
         else {
-            await axios.put(`http://localhost:4500/declareSold/${filteredClient._id}`)
+            await axios.put(`/declareSold/${filteredClient._id}`)
         }
 
     }
@@ -68,7 +68,7 @@ class Update extends Component {
 
 
     getDataFromDB = async () => {
-        let clients = await axios.get('http://localhost:4500/clients/actions')
+        let clients = await axios.get('/clients/actions')
         this.setState({ clientsMapped: clients.data })
     }
 

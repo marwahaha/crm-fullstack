@@ -24,7 +24,7 @@ class Clients extends Component {
 
 
     getDataFromDB = async () => {
-        let clientsFromDB = await axios.get('http://localhost:4500/clients')
+        let clientsFromDB = await axios.get('/clients')
         this.setState({ clients: clientsFromDB.data })
 
     }
@@ -32,7 +32,7 @@ class Clients extends Component {
 
     postToDB = async () => {
         let data = await require("../../data.json")
-        data.map(async c => await axios.post('http://localhost:4500/newClient', c))
+        data.map(async c => await axios.post('/newClient', c))
 
     }
 

@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', api)
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 
@@ -24,7 +25,10 @@ app.get('/sanity', function (req, res) {
     res.send("ok")
 })
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 const port = 4500
-app.listen(port, function () {
-    console.log(`Server running on ${port}`)
-})
+app.listen(process.env.PORT || PORT);

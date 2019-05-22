@@ -28,7 +28,7 @@ class PopUp extends Component {
 
     }
 
-    let response = await axios.put(`http://localhost:4500/updateClientPopUp/`, clientData)
+    let response = await axios.put(`/updateClientPopUp/`, clientData)
     this.props.getDataFromDB()
 
   }

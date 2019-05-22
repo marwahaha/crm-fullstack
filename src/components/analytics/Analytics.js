@@ -17,7 +17,7 @@ class Analytics extends Component {
 
 
     getDataFromDB = async () => {
-        let clientsFromDB = await axios.get('http://localhost:4500/clients')
+        let clientsFromDB = await axios.get('/clients')
         this.setState({ clients: clientsFromDB.data })
 
     }

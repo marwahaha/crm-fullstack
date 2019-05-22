@@ -31,7 +31,7 @@ class Add extends Component {
             country : this.state.country
         
         }
-        await axios.post('http://localhost:4500/newClient', newClient)
+        await axios.post('/newClient', newClient)
 
     }
 
