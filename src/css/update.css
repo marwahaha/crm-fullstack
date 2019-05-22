@@ -28,10 +28,25 @@
     grid-template-columns: 1fr 1fr 9fr;
 }
 
-select {
-    /* justify-self: left; */
+.transferSelect {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(127, 127, 128);
+    color: black;
     margin-right: 22%;
     height: 130%;
+    margin-top: 8%;
+}
+
+.emailSelect {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(127, 127, 128);
+    color: black;
+    margin-right: 22%;
+    height: 60%;
     margin-top: 8%;
 }
 

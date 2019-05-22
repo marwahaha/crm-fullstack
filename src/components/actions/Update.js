@@ -87,14 +87,14 @@ class Update extends Component {
                 <ClientInput clients={this.state.clientsMapped} changeValue={this.changeValue} />
 
                 <div className="transferOwnership">Tranfer ownership to :
-                <select id="selectedNewOwner" onChange={this.changeValue}>
+                <select className="transferSelect" onChange={this.changeValue}>
                         {this.state.owners.map(o => <option value={o}>{o}</option>)}
                     </select>
                     <span onClick={this.transferOwner} id="transferBtn" className="updateBtns">TRANSFER</span>
                 </div>
 
                 <div className="sendEmail">Send email :
-                <select id="selectedEmailType" onChange={this.changeValue}>
+                <select className="emailSelect" onChange={this.changeValue}>
                         {this.state.emailTypes.map(e => <option value={e} onChange={this.changeValue}>{e}</option>)}
                     </select>
                     <span onClick={this.UpdateEmailType} className="updateBtns">SEND</span>

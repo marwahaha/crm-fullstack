@@ -25,9 +25,9 @@ class SearchBar extends Component {
         return (
             <div id="searchBar">
                 
-                <input  name="inputValue" type="text" placeholder="Search by category.." onChange={this.changeValue} value={this.state.inputValue} />
+                <input id="searchInput" name="inputValue" type="text" placeholder="Search by category.." onChange={this.changeValue} value={this.state.inputValue} />
                 
-                <select name="selectedOption" onChange={this.changeValue} value={this.state.selectedOption}>
+                <select id="searchSelect" name="selectedOption" onChange={this.changeValue} value={this.state.selectedOption}>
                     <option value="name">Name</option>
                     <option value="country">Country</option>
                     <option value="owner">Owner</option>

@@ -16,21 +16,24 @@
      margin-top: 1%;
 }
 
-input {
+#searchInput {
+    display: grid;
     font-family: 'Montserrat', sans-serif;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(127, 127, 128);
-    color : black ;
+    color: black;
     margin-left: 3%;
+    justify-self: center;
+    align-self: center;
 }
 
-select {
+
+#searchSelect {
     font-family: 'Montserrat', sans-serif;
-    /* align-self: center; */
     background-color: transparent;
     border: none;
     border-bottom: 2px solid rgb(127, 127, 128);
-    color : black ;
-
+    color: black;
+    margin-bottom: 9%;
 }
