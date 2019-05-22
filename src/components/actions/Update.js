@@ -23,20 +23,16 @@ class Update extends Component {
     }
 
     changeValue = async e => {
-        console.log(e.target.id)
         await this.setState({ [e.target.id]: e.target.value })
     }
 
     transferOwner = async () => {
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
-        console.log(filteredClient._id)
         await axios.put(`/owner/${filteredClient._id}/${this.state.selectedNewOwner}`)
     }
 
     UpdateEmailType = async () => {
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
-        console.log(filteredClient._id)
-        console.log(this.state.selectedEmailType)
 
         await axios.put(`/emailType/${filteredClient._id}/${this.state.selectedEmailType}`)
 
@@ -45,7 +41,6 @@ class Update extends Component {
     declareSale = async () => {
 
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
-        console.log(filteredClient.sold)
         if (filteredClient.sold) {
             return
         }

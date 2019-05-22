@@ -51,9 +51,9 @@ class PopUp extends Component {
       
       <span id="popUp">
         <i onClick={this.props.togglePopUp} className="far fa-window-close"></i>
-        <span className="inputField">Name : <input type="text" id="name" value={this.state.name} onChange={this.changeValue} /></span>
-        <span className="inputField">SurName : <input type="text" id="surName" value={this.state.surName} onChange={this.changeValue} /></span>
-        <span className="inputField">country : <input type="text" id="country" value={this.state.country} onChange={this.changeValue} /></span>
+        <span className="inputField">Name : <input type="text" className="name" value={this.state.name} onChange={this.changeValue} /></span>
+        <span className="inputField">SurName : <input type="text" className="surName" value={this.state.surName} onChange={this.changeValue} /></span>
+        <span className="inputField">country : <input type="text" className="country" value={this.state.country} onChange={this.changeValue} /></span>
         <div onClick={this.updatePoppedClient} className="updateBtn">Update</div>
 
 
