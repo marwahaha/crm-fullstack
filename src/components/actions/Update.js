@@ -22,8 +22,10 @@ class Update extends Component {
         }
     }
 
-    changeValue = e => this.setState({ [e.target.id]: e.target.value })
-
+    changeValue = async e => {
+        console.log(e.target.id)
+        await this.setState({ [e.target.id]: e.target.value })
+    }
 
     transferOwner = async () => {
         let filteredClient = this.state.clientsMapped.find(c => c.name == this.state.clientToUpdate)
@@ -86,15 +88,15 @@ class Update extends Component {
                 <h5>UPDATE</h5>
                 <ClientInput clients={this.state.clientsMapped} changeValue={this.changeValue} />
 
-                <div className="transferOwnership">Tranfer ownership to :
-                <select className="transferSelect" onChange={this.changeValue}>
+                <div className="transferOwnership">Transfer ownership to :
+                <select  id="selectedNewOwner" className="transferSelect" onChange={this.changeValue}>
                         {this.state.owners.map(o => <option value={o}>{o}</option>)}
                     </select>
                     <span onClick={this.transferOwner} id="transferBtn" className="updateBtns">TRANSFER</span>
                 </div>
 
                 <div className="sendEmail">Send email :
-                <select className="emailSelect" onChange={this.changeValue}>
+                <select id="selectedEmailType" className="emailSelect" onChange={this.changeValue}>
                         {this.state.emailTypes.map(e => <option value={e} onChange={this.changeValue}>{e}</option>)}
                     </select>
                     <span onClick={this.UpdateEmailType} className="updateBtns">SEND</span>
