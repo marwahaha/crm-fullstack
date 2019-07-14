@@ -4,7 +4,7 @@ CRM-Full Stack React Project
 Main features :
 
 1. Clients data pulled from a DB (mongoDB)
-2. Abilty to edit client/add client. 
+2. Ability to edit client/add client. 
 3. Analytics tab with dynamic statitics. 
 4. Pagination
 4. Single page app. 
